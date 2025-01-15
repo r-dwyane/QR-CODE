@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>QR Code Generator</title>
+</head>
+<h2 style = "color:rgb(255, 255, 255); text-align: center;">Customized QR Code Basic Generator<h2>
+<body style="background-color: #92AA83; font-family: sans-serif;">
+<center>
+    <img id="qr-code-image" alt="QR code">
+</center>
+<center>
+    <input type="text" id="qr-code-value" placeholder="Enter text or URL" style="border-radius: 20px; padding: 10px; border: none;">
+
+    <button onclick="generateQRCode()" style="border-radius: 20px; border: none; font-size: 14px; font-family: sans-serif; background-color: #E7F59E; color: #212121; padding: 8px; cursor: pointer;">Generate QR Code</button>
+</center>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+<script>
+function generateQRCode() {
+const value = document.getElementById('qr-code-value').value;
+const options = {
+value: value,
+size: 400,
+level: 'H'
+};
+const qrCode = new QRious(options);
+const qrCodeImage = qrCode.toDataURL();
+document.getElementById('qr-code-image').src = qrCodeImage;
+}
+</script>
+</body>
+</html>
